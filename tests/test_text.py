@@ -75,6 +75,7 @@ def test_le():
     green_foo = Text("foo", style="green")
     red_foo_styled_with_obj = Text("foo", Style(color="red"))
     assert_less_than(foo, goo)
+    assert foo > "foo"
     assert foo <= foo
     assert foo <= "goo"
     assert red_foo <= red_foo
@@ -83,6 +84,7 @@ def test_le():
     assert_less_than(green_foo, red_foo)
     assert_less_than(green_foo, red_foo_styled_with_obj)
     assert red_foo > green_foo
+    assert not red_foo_styled_with_obj < red_foo_styled_with_obj
 
     def partially_styled(initial_style='', style_start=None, partial_style=''):
         hello = Text("hello, cold world!", initial_style)
